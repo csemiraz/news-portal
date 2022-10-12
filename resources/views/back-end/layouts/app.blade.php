@@ -11,7 +11,7 @@
     @include('back-end.layouts.partial.styles')
 
 
-    @include('back-end.layouts.partial.styles')
+    @include('back-end.layouts.partial.scripts')
 
 </head>
 
