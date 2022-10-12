@@ -6,7 +6,7 @@
 
     <link rel="icon" type="image/png" href="{{ asset('assets/back-end/uploads/favicon.png') }}">
 
-    <title>Admin Login</title>
+    <title>Admin Reset Password</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -14,7 +14,6 @@
 
     @include('back-end.layouts.partial.scripts')
 
-   
 </head>
 
 <body>
@@ -26,42 +25,36 @@
                     <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="card card-primary border-box">
                             <div class="card-header card-header-auth">
-                                <h4 class="text-center">Admin Login</h4>
+                                <h4 class="text-center">Reset Password</h4>
                                 @if(Session::has('error'))
-                                    <h4 class="text-danger">{{ Session::get('error') }}</h4>
-                                @endif
-
-                                @if(Session::has('success'))
-                                    <h4 class="text-success text-center">{{ Session::get('success') }}</h4>
+                                    <h4 class="text-danger text-center">{{ Session::get('error') }}</h4>
                                 @endif
                             </div>
                             <div class="card-body card-body-auth">
-                                <form method="POST" action="{{ route('admin_login_submit') }}">
+                                <form method="POST" action="{{ route('admin_reset_password_submit') }}">
                                     @csrf
+                                    <input type="hidden" name="token" value="{{ $token }}">
+                                    <input type="hidden" name="email" value="{{ $email }}">
                                     <div class="form-group">
-                                        <input type="text" class="form-control"  name="email" placeholder="Email Address" value="{{ old('email') }}" autofocus>
-                                        @error('email')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
+                                        <input type="password" class="form-control" name="password" placeholder="Password"  autofocus>
+                                    @error('password')
+                                      <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                     </div>
+
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name="password"  placeholder="Password">
-                                        @error('password')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
+                                        <input type="password" class="form-control" name="retype_password" placeholder="Retype Password"  autofocus>
+                                    @error('retype_password')
+                                      <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                     </div>
+                                    
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                            Login
+                                            Update Password
                                         </button>
                                     </div>
-                                    <div class="form-group">
-                                        <div>
-                                            <a href="{{ route('admin_forget_password') }}">
-                                                Forget Password?
-                                            </a>
-                                        </div>
-                                    </div>
+                                   
                                 </form>
                             </div>
                         </div>
