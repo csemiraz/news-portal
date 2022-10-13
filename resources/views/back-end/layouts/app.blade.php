@@ -40,6 +40,36 @@
 
 @include('back-end.layouts.partial.scripts_footer')
 
+@if($errors->any())
+    @foreach ($errors->all() as $error)
+    <script>
+        iziToast.error({
+            title: '',
+            position: 'topRight',
+            message: '{{ $error }}'
+        });
+    </script>
+    @endforeach
+@endif
 
+@if(session()->has('success'))
+    <script>
+        iziToast.success({
+            title: '',
+            position: 'topRight',
+            message: '{{ session()->get('success') }}'
+        });
+    </script>
+@endif
+
+@if(session()->has('error'))
+    <script>
+        iziToast.error({
+            title: '',
+            position: 'topRight',
+            message: '{{ session()->get('error') }}'
+        });
+    </script>
+@endif
 </body>
 </html>

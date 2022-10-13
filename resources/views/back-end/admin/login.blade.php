@@ -27,8 +27,8 @@
                         <div class="card card-primary border-box">
                             <div class="card-header card-header-auth">
                                 <h4 class="text-center">Admin Login</h4>
-                                @if(Session::has('error'))
-                                    <h4 class="text-danger">{{ Session::get('error') }}</h4>
+                                @if(session()->has('error'))
+                                    <h4 class="text-danger">{{ session()->get('error') }}</h4>
                                 @endif
 
                                 @if(Session::has('success'))
@@ -73,6 +73,38 @@
 </div>
 
 @include('back-end.layouts.partial.scripts_footer')
+
+@if($errors->any())
+    @foreach ($errors->all() as $error)
+        <script>
+            iziToast.error({
+                title: '',
+                position: 'topRight',
+                message: '{{ $error }}',
+            });
+        </script>
+    @endforeach
+@endif
+
+@if(session()->has('error'))
+    <script>
+        iziToast.error({
+            title: '',
+            position: 'topRight',
+            message: '{{ session()->get('error') }}',
+        });
+    </script>
+@endif
+
+@if(session()->has('success'))
+    <script>
+        iziToast.success({
+            title: '',
+            position: 'topRight',
+            message: '{{ session()->get('success') }}',
+        });
+    </script>
+@endif
 
 </body>
 </html>
