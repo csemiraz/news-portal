@@ -1,0 +1,1 @@
+<script src="{{ asset('assets/front-end/js/custom.js') }}"></script> 
