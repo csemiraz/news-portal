@@ -1,5 +1,5 @@
 @extends('front-end.layouts.app')
-
+@section('title', 'News Portal')
 @section('main_content')
 <div class="news-ticker-item">
     <div class="container">
