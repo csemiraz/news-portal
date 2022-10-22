@@ -12,7 +12,7 @@
                 <h4>Above Search</h4>
                     <div class="form-group mb-3">
                         <label>Existing Photo</label>
-                        <img src="{{ asset('assets/front-end/uploads/'.$admin_ad_data->above_search_ad) }}" style="width: 100%; height: 200px;" alt="above search photo">
+                        <img src="{{ asset('assets/front-end/uploads/'.$home_ad_data->above_search_ad) }}" style="width: 100%; max-height: 200px;" alt="above search photo">
                     </div>
 
                     <div class="form-group mb-3">
@@ -22,14 +22,14 @@
 
                     <div class="form-group mb-3">
                         <label>URL</label>
-                        <input type="text" name="above_search_ad_url" class="form-control" value="{{ $admin_ad_data->above_search_ad_url }}">
+                        <input type="text" name="above_search_ad_url" class="form-control" value="{{ $home_ad_data->above_search_ad_url }}">
                     </div>
 
                     <div class="form-group mb-3">
                         <label>Status</label>
                         <select name="above_search_ad_status" class="form-control">
-                            <option {{ $admin_ad_data->above_search_ad_status=='Show' ? 'selected' : '' }}>Show</option>
-                            <option {{ $admin_ad_data->above_search_ad_status == 'Hide' ? 'selected' : '' }}>Hide</option>
+                            <option {{ $home_ad_data->above_search_ad_status=='Show' ? 'selected' : '' }}>Show</option>
+                            <option {{ $home_ad_data->above_search_ad_status == 'Hide' ? 'selected' : '' }}>Hide</option>
                         </select>
                     </div> 
                 </div>
@@ -42,7 +42,7 @@
                 <h4>Above Footer</h4>
                     <div class="form-group mb-3">
                         <label>Existing Photo</label>
-                        <img src="{{ asset('assets/front-end/uploads/'.$admin_ad_data->above_footer_ad) }}" style="width: 100%; height: 200px;" alt="above footer photo">
+                        <img src="{{ asset('assets/front-end/uploads/'.$home_ad_data->above_footer_ad) }}" style="width: 100%; max-height: 200px;" alt="above footer photo">
                     </div>
 
                     <div class="form-group mb-3">
@@ -52,14 +52,14 @@
 
                     <div class="form-group mb-3">
                         <label>URL</label>
-                        <input type="text" name="above_footer_ad_url" class="form-control" value="{{ $admin_ad_data->above_footer_ad_url }}">
+                        <input type="text" name="above_footer_ad_url" class="form-control" value="{{ $home_ad_data->above_footer_ad_url }}">
                     </div>
 
                     <div class="form-group mb-3">
                         <label>Status</label>
                         <select name="above_footer_ad_status" class="form-control">
-                            <option {{ $admin_ad_data->above_footer_ad_status=='Show' ? 'selected' : '' }}>Show</option>
-                            <option {{ $admin_ad_data->above_footer_ad_status == 'Hide' ? 'selected' : '' }}>Hide</option>
+                            <option {{ $home_ad_data->above_footer_ad_status=='Show' ? 'selected' : '' }}>Show</option>
+                            <option {{ $home_ad_data->above_footer_ad_status == 'Hide' ? 'selected' : '' }}>Hide</option>
                         </select>
                     </div> 
                 </div>
