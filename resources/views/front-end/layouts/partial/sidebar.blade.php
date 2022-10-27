@@ -4,9 +4,9 @@
         @foreach ($global_sidebar_top_ad as $row)
             <div class="ad-sidebar">
                 @if($row->sidebar_ad_url!='')
-                    <a href="{{ $row->sidebar_ad_url }}"><img src="{{ asset('assets/front-end/uploads/'.$row->sidebar_ad_photo) }}" alt="sidebar_ad" style="width: 100%; height:250px"></a>
+                    <a href="{{ $row->sidebar_ad_url }}"><img src="{{ asset('assets/front-end/uploads/'.$row->sidebar_ad_photo) }}" alt="sidebar_ad" style="width: 100%; height:200px"></a>
                 @else
-                    <img src="{{ asset('assets/front-end/uploads/'.$row->sidebar_ad_photo) }}" alt="sidebar_ad" style="width: 100%; height:250px">
+                    <img src="{{ asset('assets/front-end/uploads/'.$row->sidebar_ad_photo) }}" alt="sidebar_ad" style="width: 100%; height:200px">
                 @endif
             </div>
         @endforeach
@@ -259,9 +259,9 @@
         @foreach ($global_sidebar_bottom_ad as $row)
             <div class="ad-sidebar">
                 @if($row->sidebar_ad_url!='')
-                    <a href="{{ $row->sidebar_ad_url }}"><img src="{{ asset('assets/front-end/uploads/'.$row->sidebar_ad_photo) }}" alt="sidebar_ad" style="width: 100%; height:250px"></a>
+                    <a href="{{ $row->sidebar_ad_url }}"><img src="{{ asset('assets/front-end/uploads/'.$row->sidebar_ad_photo) }}" alt="sidebar_ad" style="width: 100%; height:200px"></a>
                 @else
-                    <img src="{{ asset('assets/front-end/uploads/'.$row->sidebar_ad_photo) }}" alt="sidebar_ad" style="width: 100%; height:250px">
+                    <img src="{{ asset('assets/front-end/uploads/'.$row->sidebar_ad_photo) }}" alt="sidebar_ad" style="width: 100%; height:200px">
                 @endif
             </div>
         @endforeach

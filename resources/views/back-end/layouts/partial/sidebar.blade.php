@@ -20,6 +20,15 @@
                 </ul>
             </li>
 
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>News</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin_category_show') }}"><i class="fas fa-angle-right"></i> Category</a></li>
+                    <li><a class="nav-link" href=""><i class="fas fa-angle-right"></i> Sub Category</a></li>
+                    <li><a class="nav-link" href=""><i class="fas fa-angle-right"></i> Post</a></li>
+                </ul>
+            </li>
+
             
 
 

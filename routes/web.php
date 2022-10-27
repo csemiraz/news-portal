@@ -5,6 +5,7 @@ use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminAdvertisementController;
 
 
@@ -41,5 +42,15 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/sidebar-advertisement-edit/{id}', [AdminAdvertisementController::class, 'sidebar_ad_edit'])->name('admin_sidebar_ad_edit');
     Route::post('admin/sidebar-advertisement-update/{id}', [AdminAdvertisementController::class, 'sidebar_ad_update'])->name('admin_sidebar_ad_update');
     Route::get('admin/sidebar-advertisement-delete/{id}', [AdminAdvertisementController::class, 'sidebar_ad_delete'])->name('admin_sidebar_ad_delete');
+
+    Route::get('admin/category/show', [AdminCategoryController::class, 'show'])->name('admin_category_show');
+    Route::get('admin/category/create', [AdminCategoryController::class, 'create'])->name('admin_category_create');
+    Route::post('admin/category/store', [AdminCategoryController::class, 'store'])->name('admin_category_store');
+    Route::get('admin/category/edit/{id}', [AdminCategoryController::class, 'edit'])->name('admin_category_edit');
+    Route::post('admin/category/update/{id}', [AdminCategoryController::class, 'update'])->name('admin_category_update');
+    Route::get('admin/category/delete/{id}', [AdminCategoryController::class, 'delete'])->name('admin_category_delete');
+
+    
+    
     
 });
