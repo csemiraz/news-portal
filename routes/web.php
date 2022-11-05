@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
 use App\Http\Controllers\Admin\AdminAdvertisementController;
@@ -30,7 +31,8 @@ Route::post('admin/edit-profile-submit', [AdminProfileController::class, 'edit_p
 
 Route::get('admin/logout', [AdminLoginController::class, 'logout'])->name('admin_logout');
 
-//Admin Group
+/* Admin Group */
+
 Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/home-advertisement', [AdminAdvertisementController::class, 'home_ad_show'])->name('admin_home_ad_show');
     Route::post('admin/home-advertisement-update', [AdminAdvertisementController::class, 'home_ad_update'])->name('admin_home_ad_update');
@@ -66,6 +68,9 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::post('admin/post/update/{id}', [AdminPostController::class, 'update'])->name('admin_post_update');
     Route::get('admin/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete');
     Route::get('admin/tag/delete/{id}', [AdminPostController::class, 'delete_tag'])->name('admin_tag_delete');
+
+    Route::get('admin/setting', [AdminSettingController::class, 'index'])->name('admin_setting');
+    Route::post('admin/setting/update', [AdminSettingController::class, 'update'])->name('admin_setting_update');
 
 
     
