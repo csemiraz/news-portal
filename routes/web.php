@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\PostController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminLoginController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Admin\AdminAdvertisementController;
 
 /* Front */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('news-detail/{id}', [PostController::class, 'news_detail'])->name('news_detail');
 
 
 /* Admin */
