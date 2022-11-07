@@ -23,6 +23,7 @@
                                     <th>Category Name</th>
                                     <th>Sub Category Order</th>
                                     <th>Sub Category Status</th>
+                                    <th>Show On Home?</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -34,6 +35,7 @@
                                         <td>{{ $data->rCategory->category_name }}</td>
                                         <td>{{ $data->subcategory_order }}</td>
                                         <td>{{ $data->subcategory_status }}</td>
+                                        <td>{{ $data->show_on_home }}</td>
                                         <td class="pt_10 pb_10">
                                             <a href="{{ route('admin_sub_category_edit', $data->id) }}" class="btn btn-primary">Edit</a>
                                             <a href="{{ route('admin_sub_category_delete', $data->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>

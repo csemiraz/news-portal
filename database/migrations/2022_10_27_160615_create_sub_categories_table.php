@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('subcategory_order');
             $table->string('subcategory_status');
+            $table->string('show_on_home')->default('Show');
             $table->foreign('category_id')
                     ->references('id')
                     ->on('categories')

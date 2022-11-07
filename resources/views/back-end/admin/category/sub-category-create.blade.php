@@ -39,6 +39,15 @@
                                 <option value="Hide">Hide</option>
                             </select>
                         </div> 
+
+                        <div class="form-group mb-3">
+                            <label>Show On Home?</label>
+                            <select name="show_on_home" class="form-control">
+                                <option value="Show">Show</option>
+                                <option value="Hide">Hide</option>
+                            </select>
+                        </div> 
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>

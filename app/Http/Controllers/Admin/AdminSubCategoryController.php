@@ -34,6 +34,7 @@ class AdminSubCategoryController extends Controller
         $sub_category->category_id = $request->category_id;
         $sub_category->subcategory_order = $request->subcategory_order;
         $sub_category->subcategory_status = $request->subcategory_status;
+        $sub_category->show_on_home = $request->show_on_home;
         $sub_category->save();
 
         return redirect()->back()->with('success', 'Sub Category info saved successfully.');
@@ -58,6 +59,7 @@ class AdminSubCategoryController extends Controller
         $sub_category->category_id = $request->category_id;
         $sub_category->subcategory_order = $request->subcategory_order;
         $sub_category->subcategory_status = $request->subcategory_status;
+        $sub_category->show_on_home = $request->show_on_home;
         $sub_category->update();
 
         return redirect()->route('admin_sub_category_show')->with('success', 'Sub Category info updated successfully');

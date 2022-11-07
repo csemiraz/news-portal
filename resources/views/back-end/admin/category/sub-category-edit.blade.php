@@ -39,8 +39,17 @@
                                 <option value="Hide" {{ $sub_category->subcategory_status=='Hide' ? 'selected' : '' }}>Hide</option>
                             </select>
                         </div> 
+
+                        <div class="form-group mb-3">
+                            <label>Show On Home?</label>
+                            <select name="show_on_home" class="form-control">
+                                <option value="Show" {{ $sub_category->show_on_home=='Show' ? 'selected' : '' }}>Show</option>
+                                <option value="Hide" {{ $sub_category->show_on_home=='Hide' ? 'selected' : '' }}>Hide</option>
+                            </select>
+                        </div> 
+
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
             </div>
