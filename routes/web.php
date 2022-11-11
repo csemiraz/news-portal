@@ -9,8 +9,10 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Front\SubCategoryController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSettingController;
+use App\Http\Controllers\Front\PhotoGalleryController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
+use App\Http\Controllers\Admin\AdminPhotoGalleryController;
 use App\Http\Controllers\Admin\AdminAdvertisementController;
 
 
@@ -19,6 +21,7 @@ use App\Http\Controllers\Admin\AdminAdvertisementController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('news-detail/{id}', [PostController::class, 'news_detail'])->name('news_detail');
 Route::get('news-category/{id}', [SubCategoryController::class, 'index'])->name('news-category');
+Route::get('photo-gallery', [PhotoGalleryController::class, 'index'])->name('photo_gallery');
 
 
 /* Admin */
@@ -75,6 +78,13 @@ Route::group(['middleware'=>'admin:admin'], function() {
 
     Route::get('admin/setting', [AdminSettingController::class, 'index'])->name('admin_setting');
     Route::post('admin/setting/update', [AdminSettingController::class, 'update'])->name('admin_setting_update');
+
+    Route::get('admin/photo-gallery/show', [AdminPhotoGalleryController::class, 'show'])->name('admin_photo_gallery_show');
+    Route::get('admin/photo-gallery/create', [AdminPhotoGalleryController::class, 'create'])->name('admin_photo_gallery_create');
+    Route::post('admin/photo-gallery/store', [AdminPhotoGalleryController::class, 'store'])->name('admin_photo_gallery_store');
+    Route::get('admin/photo-gallery/edit/{id}', [AdminPhotoGalleryController::class, 'edit'])->name('admin_photo_gallery_edit');
+    Route::post('admin/photo-gallery/update/{id}', [AdminPhotoGalleryController::class, 'update'])->name('admin_photo_gallery_update');
+    Route::get('admin/photo-gallery/delete/{id}', [AdminPhotoGalleryController::class, 'delete'])->name('admin_photo_gallery_delete');
 
 
     
