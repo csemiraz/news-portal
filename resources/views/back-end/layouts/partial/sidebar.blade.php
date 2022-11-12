@@ -38,6 +38,11 @@
                 <a href="{{ route('admin_photo_gallery_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Photo Gallery</span></a>
             </li>
 
+            <li class="{{ Request::is('admin/video-gallery/*') ? 'active' : '' }}">
+                <a href="{{ route('admin_video_gallery_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Video Gallery</span></a>
+            </li>
+
+
 
             
 

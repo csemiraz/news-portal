@@ -1,6 +1,6 @@
 @extends('back-end.layouts.app')
-@section('title', 'Edit Category')
-@section('heading', 'Update Category')
+@section('title', 'Edit Photo Gallery')
+@section('heading', 'Update Photo Gallery')
 @section('button')
 <a href="{{ route('admin_photo_gallery_show') }}" class="btn btn-primary"><i class="fas fa-eye"></i> View</a>
 @endsection

@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\PostController;
+use App\Http\Controllers\Front\VideoController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminVideoController;
 use App\Http\Controllers\Front\SubCategoryController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSettingController;
@@ -22,6 +24,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('news-detail/{id}', [PostController::class, 'news_detail'])->name('news_detail');
 Route::get('news-category/{id}', [SubCategoryController::class, 'index'])->name('news-category');
 Route::get('photo-gallery', [PhotoGalleryController::class, 'index'])->name('photo_gallery');
+Route::get('video-gallery', [VideoController::class, 'index'])->name('video_gallery');
+
 
 
 /* Admin */
@@ -85,6 +89,14 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/photo-gallery/edit/{id}', [AdminPhotoGalleryController::class, 'edit'])->name('admin_photo_gallery_edit');
     Route::post('admin/photo-gallery/update/{id}', [AdminPhotoGalleryController::class, 'update'])->name('admin_photo_gallery_update');
     Route::get('admin/photo-gallery/delete/{id}', [AdminPhotoGalleryController::class, 'delete'])->name('admin_photo_gallery_delete');
+
+    Route::get('admin/video-gallery/show', [AdminVideoController::class, 'show'])->name('admin_video_gallery_show');
+    Route::get('admin/video-gallery/create', [AdminVideoController::class, 'create'])->name('admin_video_gallery_create');
+    Route::post('admin/video-gallery/store', [AdminVideoController::class, 'store'])->name('admin_video_gallery_store');
+    Route::get('admin/video-gallery/edit/{id}', [AdminVideoController::class, 'edit'])->name('admin_video_gallery_edit');
+    Route::post('admin/video-gallery/update/{id}', [AdminVideoController::class, 'update'])->name('admin_video_gallery_update');
+    Route::get('admin/video-gallery/delete/{id}', [AdminVideoController::class, 'delete'])->name('admin_video_gallery_delete');
+
 
 
     

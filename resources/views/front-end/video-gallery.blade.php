@@ -1,17 +1,16 @@
 @extends('front-end.layouts.app')
-@section('title', 'Photo Gallery')
+@section('title', 'Video Gallery')
 @section('main_content')
 
- 
 <div class="page-top">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Photo Gallery</h2>
+                <h2>Video Gallery</h2>
                 <nav class="breadcrumb-container">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Photo Gallery</li>
+                        <li class="breadcrumb-item active" aria-current="page">Video Gallery</li>
                     </ol>
                 </nav>
             </div>
@@ -21,25 +20,24 @@
 
 <div class="page-content">
     <div class="container">
-        <div class="photo-gallery">
+        <div class="video-gallery">
             <div class="row">
-
-                @foreach($photo_galleries as $item)
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="photo-thumb">
-                        <img src="{{ asset('assets/images/'.$item->photo) }}" alt="">
+                @foreach($videos as $item)
+                <div class="col-lg-3 col-md-4">
+                    <div class="video-thumb">
+                        <img src="http://img.youtube.com/vi/{{ $item->video_id }}/0.jpg" alt="">
                         <div class="bg"></div>
                         <div class="icon">
-                            <a href="{{ asset('assets/images/'.$item->photo) }}" class="magnific"><i class="fas fa-plus"></i></a>
+                            <a href="http://www.youtube.com/watch?v={{ $item->video_id }}" class="video-button"><i class="fas fa-play"></i></a>
                         </div>
                     </div>
-                    <div class="photo-caption">
-                        <a href="">{{ $item->caption }}</a>
+                    <div class="video-caption">
+                        <a href="">{{ $item->video_caption }}</a>
                     </div>
-                    <div class="photo-date">
+                    <div class="video-date">
                         @php
                             $st = strtotime($item->created_at);
-                            $date = date("d M, Y", $st);
+                            $date = date("M d, Y", $st);
                         @endphp
                         <i class="fas fa-calendar-alt"></i> {{ $date }}
                     </div>
@@ -48,7 +46,9 @@
 
 
                 <div class="col-md-12">
-                    {{ $photo_galleries->links() }}
+                    <nav aria-label="Page navigation example">
+                        {{ $videos->links() }}
+                    </nav>
                 </div>
 
             </div>
