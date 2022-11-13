@@ -26,6 +26,7 @@
                 
                 <div class="category-page">
                     <div class="row">
+                        @if(count($post_data)>0)
                         @foreach($post_data as $item)
                         <div class="col-lg-6 col-md-12">
                             <div class="category-page-post-item">
@@ -60,6 +61,10 @@
                             </div>
                         </div>
                         @endforeach
+
+                        @else
+                        <h2 class="text-danger">No news found under the categories!</h2>
+                        @endif
                         
 
                         <div class="col-md-12">
