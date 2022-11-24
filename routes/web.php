@@ -1,13 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\PostController;
+use App\Http\Controllers\Front\AboutController;
+use App\Http\Controllers\Front\LoginController;
+use App\Http\Controllers\Front\TermsController;
 use App\Http\Controllers\Front\VideoController;
+use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\Front\PrivacyController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminVideoController;
+use App\Http\Controllers\Front\DisclaimerController;
 use App\Http\Controllers\Front\SubCategoryController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSettingController;
@@ -25,6 +33,16 @@ Route::get('news-detail/{id}', [PostController::class, 'news_detail'])->name('ne
 Route::get('news-category/{id}', [SubCategoryController::class, 'index'])->name('news-category');
 Route::get('photo-gallery', [PhotoGalleryController::class, 'index'])->name('photo_gallery');
 Route::get('video-gallery', [VideoController::class, 'index'])->name('video_gallery');
+Route::get('about', [AboutController::class, 'index'])->name('about');
+Route::get('faq', [FaqController::class, 'index'])->name('faq');
+Route::get('terms', [TermsController::class, 'index'])->name('terms');
+Route::get('privacy', [PrivacyController::class, 'index'])->name('privacy');
+Route::get('disclaimer', [DisclaimerController::class, 'index'])->name('disclaimer');
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+//Route::post('contact/send-email', [ContactController::class, 'send_email'])->name('contact_form_submit');
+Route::post('contact-form-submit', [ContactController::class, 'contact_form_submit'])->name('contact_form_submit');
+
 
 
 
@@ -96,6 +114,31 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/video-gallery/edit/{id}', [AdminVideoController::class, 'edit'])->name('admin_video_gallery_edit');
     Route::post('admin/video-gallery/update/{id}', [AdminVideoController::class, 'update'])->name('admin_video_gallery_update');
     Route::get('admin/video-gallery/delete/{id}', [AdminVideoController::class, 'delete'])->name('admin_video_gallery_delete');
+
+    Route::get('admin/page/about', [AdminPageController::class, 'about'])->name('admin_about_page');
+    Route::post('admin/page/about/update', [AdminPageController::class, 'about_update'])->name('admin_about_page_update');
+
+    Route::get('admin/page/faq', [AdminPageController::class, 'faq'])->name('admin_faq_page');
+    Route::post('admin/page/faq/update', [AdminPageController::class, 'faq_update'])->name('admin_faq_page_update');
+
+    Route::get('admin/page/contact', [AdminPageController::class, 'contact'])->name('admin_contact_page');
+    Route::post('admin/page/contact/update', [AdminPageController::class, 'contact_update'])->name('admin_contact_page_update');
+
+    Route::get('admin/page/terms', [AdminPageController::class, 'terms'])->name('admin_terms_page');
+    Route::post('admin/page/terms/update', [AdminPageController::class, 'terms_update'])->name('admin_terms_page_update');
+
+    Route::get('admin/page/privacy', [AdminPageController::class, 'privacy'])->name('admin_privacy_page');
+    Route::post('admin/page/privacy/update', [AdminPageController::class, 'privacy_update'])->name('admin_privacy_page_update');
+
+    Route::get('admin/page/disclaimer', [AdminPageController::class, 'disclaimer'])->name('admin_disclaimer_page');
+    Route::post('admin/page/disclaimer/update', [AdminPageController::class, 'disclaimer_update'])->name('admin_disclaimer_page_update');
+
+    Route::get('admin/page/login', [AdminPageController::class, 'login'])->name('admin_login_page');
+    Route::post('admin/page/login/update', [AdminPageController::class, 'login_update'])->name('admin_login_page_update');
+
+    Route::get('admin/page/contact', [AdminPageController::class, 'contact'])->name('admin_contact_page');
+    Route::post('admin/page/contact/update', [AdminPageController::class, 'contact_update'])->name('admin_contact_page_update');
+
 
 
 

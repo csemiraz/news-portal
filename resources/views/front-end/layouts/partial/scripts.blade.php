@@ -4,6 +4,7 @@
 <script src="{{ asset('assets/front-end/js/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ asset('assets/front-end/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/front-end/js/wow.min.js') }}"></script>
+<script src="{{ asset('assets/back-end/dist/js/iziToast.min.js') }}"></script>
 <script src="{{ asset('assets/front-end/js/select2.full.js') }}"></script>
 <script src="{{ asset('assets/front-end/js/sweetalert2.min.js') }}"></script>
 <script src="{{ asset('assets/front-end/js/jquery.waypoints.min.js') }}"></script>

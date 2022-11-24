@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{{ asset('assets/front-end/css/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/front-end/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/front-end/css/select2-bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/back-end/dist/css/iziToast.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/front-end/css/sweetalert2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/front-end/css/spacing.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/front-end/css/font_awesome_5_free.min.css') }}">
