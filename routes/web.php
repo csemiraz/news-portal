@@ -10,6 +10,7 @@ use App\Http\Controllers\Front\TermsController;
 use App\Http\Controllers\Front\VideoController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\PrivacyController;
+use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Admin\AdminPostController;
@@ -138,6 +139,13 @@ Route::group(['middleware'=>'admin:admin'], function() {
 
     Route::get('admin/page/contact', [AdminPageController::class, 'contact'])->name('admin_contact_page');
     Route::post('admin/page/contact/update', [AdminPageController::class, 'contact_update'])->name('admin_contact_page_update');
+
+    Route::get('admin/faq/show', [AdminFaqController::class, 'show'])->name('admin_faq_show');
+    Route::get('admin/faq/create', [AdminFaqController::class, 'create'])->name('admin_faq_create');
+    Route::post('admin/faq/store', [AdminFaqController::class, 'store'])->name('admin_faq_store');
+    Route::get('admin/faq/edit/{id}', [AdminFaqController::class, 'edit'])->name('admin_faq_edit');
+    Route::post('admin/faq/update/{id}', [AdminFaqController::class, 'update'])->name('admin_faq_update');
+    Route::get('admin/faq/delete/{id}', [AdminFaqController::class, 'delete'])->name('admin_faq_delete');
 
 
 

@@ -64,6 +64,10 @@
             <li class="{{ Request::is('admin/video-gallery/*') ? 'active' : '' }}">
                 <a href="{{ route('admin_video_gallery_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Video Gallery</span></a>
             </li>
+
+            <li class="{{ Request::is('admin/faq/*') ? 'active' : '' }}">
+                <a href="{{ route('admin_faq_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>FAQ Section</span></a>
+            </li>
             
 
 
