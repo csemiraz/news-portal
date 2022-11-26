@@ -68,6 +68,10 @@
             <li class="{{ Request::is('admin/faq/*') ? 'active' : '' }}">
                 <a href="{{ route('admin_faq_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>FAQ Section</span></a>
             </li>
+
+            <li class="{{ Request::is('admin/subscribers/*') ? 'active' : '' }}">
+                <a href="{{ route('admin_subscribers') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Subscribers</span></a>
+            </li>
             
 
 

@@ -27,7 +27,7 @@
             </div>
             @endif
             <div class="col-lg-6 col-md-12">
-                <form action="{{ route('contact_form_submit') }}" method="POST">
+                <form action="{{ route('contact_form_submit') }}" method="POST" class="form_contact_ajax">
                     @csrf
                     <div class="contact-form">  
                         <div class="mb-3">
@@ -64,7 +64,7 @@
 
 
 <script>
-   /*  (function($){
+    (function($){
         $(".form_contact_ajax").on('submit', function(e){
             e.preventDefault();
             $('#loader').show();
@@ -101,7 +101,7 @@
                 }
             });
         });
-    })(jQuery); */
+    })(jQuery);
 </script>
 
 

@@ -58,6 +58,14 @@
                             <input type="text" name="tags" class="form-control" placeholder="tag1,tag2,tag3.....">
                         </div>
 
+                        <div class="form-group mb-3">
+                            <label>Send to subscribers?</label>
+                            <select name="subscriber_send_option" class="form-control">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div> 
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>

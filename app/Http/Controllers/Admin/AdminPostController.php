@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Tag;
 use App\Models\Post;
+use App\Mail\WebsiteMail;
+use App\Models\Subscriber;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -64,6 +66,23 @@ class AdminPostController extends Controller
                 $tag->tag_name = $tags_array_new[$i];
                 $tag->save();
             }
+        }
+
+        //Sending post to subscribers
+        if($request->subscriber_send_option == 1)
+        {
+            $subject = 'A new post published';
+            $message = 'Hi, A new post is published. Please see that: <br />';
+            $message .= '<a target="_blank" href="'.route('news_detail', $post->id).'">';
+            $message .= $request->post_title;
+            $message .= '</a>';
+
+            $subscribers = Subscriber::where('status', 'Active')->get();
+            foreach($subscribers as $data)
+            {
+                \Mail::to($data->email)->send(new WebsiteMail($subject, $message));
+            }
+
         }
 
         return redirect()->back()->with('success', 'Data is created successfully.');
