@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Front\PhotoGalleryController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminSubscriberController;
+use App\Http\Controllers\Admin\AdminLiveChannelController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
 use App\Http\Controllers\Admin\AdminPhotoGalleryController;
 use App\Http\Controllers\Admin\AdminAdvertisementController;
@@ -154,6 +155,13 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/subscribers', [AdminSubscriberController::class, 'show'])->name('admin_subscribers');
     Route::get('admin/subscribers/send-email', [AdminSubscriberController::class, 'send_email'])->name('admin_subscribers_send_email');
     Route::post('admin/subscribers/send-email-submit', [AdminSubscriberController::class, 'send_email_submit'])->name('admin_subscribers_send_email_submit');
+
+    Route::get('admin/live-channel/show', [AdminLiveChannelController::class, 'show'])->name('admin_live_channel_show');
+    Route::get('admin/live-channel/create', [AdminLiveChannelController::class, 'create'])->name('admin_live_channel_create');
+    Route::post('admin/live-channel/store', [AdminLiveChannelController::class, 'store'])->name('admin_live_channel_store');
+    Route::get('admin/live-channel/edit/{id}', [AdminLiveChannelController::class, 'edit'])->name('admin_live_channel_edit');
+    Route::post('admin/live-channel/update/{id}', [AdminLiveChannelController::class, 'update'])->name('admin_live_channel_update');
+    Route::get('admin/live-channel/delete/{id}', [AdminLiveChannelController::class, 'delete'])->name('admin_live_channel_delete');
 
 
 

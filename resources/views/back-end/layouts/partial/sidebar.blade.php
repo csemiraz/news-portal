@@ -72,6 +72,11 @@
             <li class="{{ Request::is('admin/subscribers/*') ? 'active' : '' }}">
                 <a href="{{ route('admin_subscribers') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Subscribers</span></a>
             </li>
+
+            
+            <li class="{{ Request::is('admin/live-chanel/*') ? 'active' : '' }}">
+                <a href="{{ route('admin_live_channel_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Live Channel</span></a>
+            </li>
             
 
 
