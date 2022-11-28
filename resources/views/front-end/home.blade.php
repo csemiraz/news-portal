@@ -115,13 +115,13 @@
                                 <h2><a href="{{ route('news_detail', $item->id) }}">{{ $item->post_title }}</a></h2>
                                 <div class="date-user">
                                     <div class="user">
-                                        @if($item->author_id==0)
+                                    @if($item->author_id==0)
                                         @php
                                         $user_data = \App\Models\Admin::where('id',$item->admin_id)->first();
                                         @endphp
                                     @else
                                         @php
-                                        $user_data = \App\Models\Admni::where('id',$item->author_id)->first();
+                                        $user_data = \App\Models\Admin::where('id',$item->author_id)->first();
                                         @endphp
                                     @endif
     
