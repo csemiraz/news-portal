@@ -17,12 +17,14 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminVideoController;
 use App\Http\Controllers\Front\DisclaimerController;
+use App\Http\Controllers\Front\OnlinePollController;
 use App\Http\Controllers\Front\SubscriberController;
 use App\Http\Controllers\Front\SubCategoryController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Front\PhotoGalleryController;
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminOnlinePollController;
 use App\Http\Controllers\Admin\AdminSubscriberController;
 use App\Http\Controllers\Admin\AdminLiveChannelController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
@@ -48,6 +50,8 @@ Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact-form-submit', [ContactController::class, 'contact_form_submit'])->name('contact_form_submit');
 Route::post('subscriber', [SubscriberController::class, 'subscriber'])->name('subscriber');
 Route::get('subscriber/verify/{token}/{email}', [SubscriberController::class, 'verify'])->name('subscriber_verify');
+Route::post('online-poll-submit', [OnlinePollController::class, 'poll_submit'])->name('online_poll_submit');
+Route::get('online-poll-result', [OnlinePollController::class, 'poll_result'])->name('online_poll_result');
 
 
 
@@ -162,6 +166,13 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/live-channel/edit/{id}', [AdminLiveChannelController::class, 'edit'])->name('admin_live_channel_edit');
     Route::post('admin/live-channel/update/{id}', [AdminLiveChannelController::class, 'update'])->name('admin_live_channel_update');
     Route::get('admin/live-channel/delete/{id}', [AdminLiveChannelController::class, 'delete'])->name('admin_live_channel_delete');
+
+    Route::get('admin/online-poll/show', [AdminOnlinePollController::class, 'show'])->name('admin_online_poll_show');
+    Route::get('admin/online-poll/create', [AdminOnlinePollController::class, 'create'])->name('admin_online_poll_create');
+    Route::post('admin/online-poll/store', [AdminOnlinePollController::class, 'store'])->name('admin_online_poll_store');
+    Route::get('admin/online-poll/edit/{id}', [AdminOnlinePollController::class, 'edit'])->name('admin_online_poll_edit');
+    Route::post('admin/online-poll/update/{id}', [AdminOnlinePollController::class, 'update'])->name('admin_online_poll_update');
+    Route::get('admin/online-poll/delete/{id}', [AdminOnlinePollController::class, 'delete'])->name('admin_online_poll_delete');
 
 
 

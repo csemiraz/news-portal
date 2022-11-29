@@ -77,6 +77,11 @@
             <li class="{{ Request::is('admin/live-chanel/*') ? 'active' : '' }}">
                 <a href="{{ route('admin_live_channel_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Live Channel</span></a>
             </li>
+
+            <li class="{{ Request::is('admin/online-poll/*') ? 'active' : '' }}">
+                <a href="{{ route('admin_online_poll_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Online Poll</span></a>
+            </li>
+            
             
 
 
