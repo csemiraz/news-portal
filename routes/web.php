@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\LoginController;
 use App\Http\Controllers\Front\TermsController;
 use App\Http\Controllers\Front\VideoController;
+use App\Http\Controllers\Front\ArchiveController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\PrivacyController;
 use App\Http\Controllers\Admin\AdminFaqController;
@@ -52,6 +53,8 @@ Route::post('subscriber', [SubscriberController::class, 'subscriber'])->name('su
 Route::get('subscriber/verify/{token}/{email}', [SubscriberController::class, 'verify'])->name('subscriber_verify');
 Route::post('online-poll-submit', [OnlinePollController::class, 'poll_submit'])->name('online_poll_submit');
 Route::get('online-poll-result', [OnlinePollController::class, 'poll_result'])->name('online_poll_result');
+Route::post('archive/show', [ArchiveController::class, 'show'])->name('archive_show');
+Route::get('archive/{year}/{month}', [ArchiveController::class, 'archive_detail'])->name('archive_detail');
 
 
 

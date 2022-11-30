@@ -125,14 +125,14 @@
                                         @endphp
                                     @endif
     
-                                    <a href="">{{ $user_data->name }}</a>
+                                    <a href="javascript:void(0)">{{ $user_data->name }}</a>
                                     </div>
                                     <div class="date">
                                         @php
                                             $st = strtotime($item->updated_at);
                                             $date = date("j F, Y", $st);
                                         @endphp
-                                        <a href="">{{ $date }}</a>
+                                        <a href="javascript:void(0)">{{ $date }}</a>
                                     </div>
                                 </div>
                             </div>

@@ -29,7 +29,7 @@
                 <div class="sub">
                     <div class="item">
                         <b><i class="fas fa-user"></i></b>
-                        <a href="">{{ $user_data->name }}</a>
+                        <a href="javascript:void(0)">{{ $user_data->name }}</a>
                     </div>
                     <div class="item">
                         <b><i class="fas fa-edit"></i></b>
@@ -91,10 +91,10 @@
                             <h3><a href="">Haaland scores before going off injured in Dortmund win and it is very real</a></h3>
                             <div class="date-user">
                                 <div class="user">
-                                    <a href="">Paul David</a>
+                                    <a href="javascript:void(0)">Paul David</a>
                                 </div>
                                 <div class="date">
-                                    <a href="">10 Jan, 2022</a>
+                                    <a href="javascript:void(0)">10 Jan, 2022</a>
                                 </div>
                             </div>
                         </div>

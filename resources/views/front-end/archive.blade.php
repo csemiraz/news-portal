@@ -1,16 +1,17 @@
 @extends('front-end.layouts.app')
-@section('title', 'News Category')
+@section('title', 'Archive')
 @section('main_content')
 
 <div class="page-top">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>{{ $sub_category_data->subcategory_name }}</h2>
+                <h2>All Posts of {{ $updated_date }}</h2>
                 <nav class="breadcrumb-container">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                        <li class="breadcrumb-item">{{ $sub_category_data->subcategory_name }}</li>
+                        <li class="breadcrumb-item">Archive</li>
+                        <li class="breadcrumb-item active">{{ $updated_date }}</li>
                         
                     </ol>
                 </nav>
@@ -26,15 +27,15 @@
                 
                 <div class="category-page">
                     <div class="row">
-                        @if(count($post_data)>0)
-                        @foreach($post_data as $item)
+                        @if(count($archive_post_data)>0)
+                        @foreach($archive_post_data as $item)
                         <div class="col-lg-6 col-md-12">
                             <div class="category-page-post-item">
                                 <div class="photo">
                                     <img src="{{ asset('assets/images/'.$item->post_photo) }}" alt="">
                                 </div>
                                 <div class="category">
-                                    <span class="badge bg-success">{{ $sub_category_data->subcategory_name }}</span>
+                                    <span class="badge bg-success">{{ $item->rSubCategory->subcategory_name }}</span>
                                 </div>
                                 <h3><a href="{{ route('news_detail', $item->id) }}">{{ $item->post_title }}</a></h3>
                                 <div class="date-user">
@@ -68,7 +69,7 @@
                         
 
                         <div class="col-md-12">
-                            {{ $post_data->links() }}
+                            {{ $archive_post_data->links() }}
                         </div>
 
                     </div>
