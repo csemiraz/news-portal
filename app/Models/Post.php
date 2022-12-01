@@ -13,4 +13,9 @@ class Post extends Model
     {
         return $this->belongsTo(SubCategory::class, 'sub_category_id');
     }
+
+    /* public function rTags()
+    {
+        return $this->hasMany(Tag::class);
+    } */
 }
