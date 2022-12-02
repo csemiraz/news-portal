@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Front\PhotoGalleryController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminOnlinePollController;
+use App\Http\Controllers\Admin\AdminSocialItemController;
 use App\Http\Controllers\Admin\AdminSubscriberController;
 use App\Http\Controllers\Admin\AdminLiveChannelController;
 use App\Http\Controllers\Admin\AdminSubCategoryController;
@@ -182,6 +183,13 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/online-poll/edit/{id}', [AdminOnlinePollController::class, 'edit'])->name('admin_online_poll_edit');
     Route::post('admin/online-poll/update/{id}', [AdminOnlinePollController::class, 'update'])->name('admin_online_poll_update');
     Route::get('admin/online-poll/delete/{id}', [AdminOnlinePollController::class, 'delete'])->name('admin_online_poll_delete');
+
+    Route::get('admin/social/show', [AdminSocialItemController::class, 'show'])->name('admin_social_show');
+    Route::get('admin/social/create', [AdminSocialItemController::class, 'create'])->name('admin_social_create');
+    Route::post('admin/social/store', [AdminSocialItemController::class, 'store'])->name('admin_social_store');
+    Route::get('admin/social/edit/{id}', [AdminSocialItemController::class, 'edit'])->name('admin_social_edit');
+    Route::post('admin/social/update/{id}', [AdminSocialItemController::class, 'update'])->name('admin_social_update');
+    Route::get('admin/social/delete/{id}', [AdminSocialItemController::class, 'delete'])->name('admin_social_delete');
 
 
 
