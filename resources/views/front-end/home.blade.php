@@ -156,7 +156,7 @@
                 </a>
                 @else
                 <img src="{{ asset('assets/front-end/uploads/'.$home_ad_data->above_search_ad) }}" alt="">
-                @endif
+                @endif 
             </div>
         </div>
     </div>
@@ -166,39 +166,39 @@
 <div class="search-section">
     <div class="container">
         <div class="inner">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <input type="text" name="" class="form-control" placeholder="Title or Description">
+            <form action="{{ route('search_result') }}" method="POST">
+                @csrf
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <input type="text" name="search_text" class="form-control" placeholder="Title or Description">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select name="category" id="category" class="form-select">
+                                <option value="">Select Category</option>
+                                @foreach ($category_data as $item)
+                                    <option value="{{ $item->id }}">{{ $item->category_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select name="sub_category" id="sub_category" class="form-select">
+                                <option value="">Select SubCategory</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary">Search</button>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <select name="" class="form-select">
-                            <option value="">Select Category</option>
-                            <option value="">Sports</option>
-                            <option value="">National</option>
-                            <option value="">Lifestyle</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <select name="" class="form-select">
-                            <option value="">Select SubCategory</option>
-                            <option value="">Football</option>
-                            <option value="">Cricket</option>
-                            <option value="">Baseball</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
+            </form>
             </div>
         </div>
     </div>
-</div>
 
 <div class="home-content">
     <div class="container">
@@ -453,6 +453,29 @@
     </div>
 </div>
 @endif
+
+
+<script>
+    (function($){
+        $(document).ready(function(){
+            $("#category").on("change", function(){
+                var categoryId = $("#category").val();
+                if(categoryId) {
+                    $.ajax({
+                        type: "get",
+                        url: "{{ url('/subcategory-by-category/') }}" + "/" + categoryId,
+                        success: function(response) {
+                            $("#sub_category").html(response.sub_category_data);
+                        },
+                        error:function(err){
+
+                        }
+                    })
+                }
+            })
+        });
+    })(jQuery);
+</script>
 
 
 @endsection

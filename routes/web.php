@@ -37,6 +37,10 @@ use App\Http\Controllers\Admin\AdminAdvertisementController;
 
 /* Front */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+//Search 
+Route::get('/subcategory-by-category/{id}', [HomeController::class, 'subcategory_by_category'])->name('subcategory_by_category');
+Route::post('search/result', [HomeController::class, 'search_result'])->name('search_result');
+
 Route::get('news-detail/{id}', [PostController::class, 'news_detail'])->name('news_detail');
 Route::get('news-category/{id}', [SubCategoryController::class, 'index'])->name('news-category');
 Route::get('photo-gallery', [PhotoGalleryController::class, 'index'])->name('photo_gallery');
