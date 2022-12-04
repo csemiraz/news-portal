@@ -81,57 +81,43 @@
                         <h2>Related News</h2>
                     </div>
                     <div class="related-post-carousel owl-carousel owl-theme">
+
+                        @foreach ($related_post as $item)
+                        @if($item->id == $post_detail->id)
+                            @continue
+                        @endif
                         <div class="item">
                             <div class="photo">
-                                <img src="uploads/n6.jpg" alt="">
+                                <img src="{{ asset('assets/images/'.$item->post_photo) }}" alt="">
                             </div>
                             <div class="category">
-                                <span class="badge bg-success">International</span>
+                                <span class="badge bg-success">{{ $item->rSubCategory->subcategory_name }}</span>
                             </div>
-                            <h3><a href="">Haaland scores before going off injured in Dortmund win and it is very real</a></h3>
+                            <h3><a href="{{ route('news_detail', $item->id) }}">{{ $item->post_title }}</a></h3>
                             <div class="date-user">
                                 <div class="user">
-                                    <a href="javascript:void(0)">Paul David</a>
+                                    @if($item->author_id==0)
+                                        @php
+                                        $user_data = \App\Models\Admin::where('id',$item->admin_id)->first();
+                                        @endphp
+                                    @else
+                                        @php
+                                        $user_data = \App\Models\Author::where('id',$item->author_id)->first();
+                                        @endphp
+                                    @endif
+                                    <a href="javascript:void(0)">{{ $user_data->name }}</a>
                                 </div>
                                 <div class="date">
-                                    <a href="javascript:void(0)">10 Jan, 2022</a>
+                                    @php
+                                        $st = strtotime($item->updated_at);
+                                        $date = date("j M, Y", $st);
+                                    @endphp
+                                    <a href="javascript:void(0)">{{ $date }}</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="photo">
-                                <img src="uploads/n6.jpg" alt="">
-                            </div>
-                            <div class="category">
-                                <span class="badge bg-success">International</span>
-                            </div>
-                            <h3><a href="">Haaland scores before going off injured in Dortmund win and it is very real</a></h3>
-                            <div class="date-user">
-                                <div class="user">
-                                    <a href="">Paul David</a>
-                                </div>
-                                <div class="date">
-                                    <a href="">10 Jan, 2022</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="photo">
-                                <img src="uploads/n6.jpg" alt="">
-                            </div>
-                            <div class="category">
-                                <span class="badge bg-success">International</span>
-                            </div>
-                            <h3><a href="">Haaland scores before going off injured in Dortmund win and it is very real</a></h3>
-                            <div class="date-user">
-                                <div class="user">
-                                    <a href="">Paul David</a>
-                                </div>
-                                <div class="date">
-                                    <a href="">10 Jan, 2022</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
                     </div>
                 </div>
             </div>

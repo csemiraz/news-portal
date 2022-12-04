@@ -30,6 +30,10 @@ class PostController extends Controller
             //update later
         }
 
-        return view('front-end.post_detail', compact('post_detail', 'tags', 'user_data'));
+        //Related News
+
+        $related_post = Post::where('sub_category_id', $post_detail->sub_category_id)->orderBy('id', 'desc')->get();
+
+        return view('front-end.post_detail', compact('post_detail', 'tags', 'user_data', 'related_post'));
     }
 }
