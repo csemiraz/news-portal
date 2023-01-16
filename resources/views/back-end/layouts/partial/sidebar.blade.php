@@ -16,6 +16,11 @@
             </li>
 
 
+            <li class="{{ Request::is('admin/author/*') ? 'active' : '' }}">
+                <a href="{{ route('admin_author_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Author List</span></a>
+            </li>
+
+
             <li class="nav-item dropdown {{ Request::is('admin/top-advertisement') || Request::is('admin/home-advertisement') || Request::is('admin/sidebar-advertisement-*') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Advertisements</span></a>
                 <ul class="dropdown-menu">
@@ -69,12 +74,13 @@
                 <a href="{{ route('admin_faq_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>FAQ Section</span></a>
             </li>
 
+
             <li class="{{ Request::is('admin/subscribers/*') ? 'active' : '' }}">
                 <a href="{{ route('admin_subscribers') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Subscribers</span></a>
             </li>
 
             
-            <li class="{{ Request::is('admin/live-chanel/*') ? 'active' : '' }}">
+            <li class="{{ Request::is('admin/live-channel/*') ? 'active' : '' }}">
                 <a href="{{ route('admin_live_channel_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Live Channel</span></a>
             </li>
 

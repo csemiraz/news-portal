@@ -19,7 +19,7 @@
                         <li class="menu"><a href="{{ route('contact') }}">Contact</a></li>
                     @endif
                     @if($global_page_data->about_status == 'Show')
-                        <li class="menu"><a href="{{ route('login') }}">Login</a></li>
+                        <li class="menu"><a href="{{ route('author_login') }}">Login</a></li>
                     @endif
                     
                     <li>

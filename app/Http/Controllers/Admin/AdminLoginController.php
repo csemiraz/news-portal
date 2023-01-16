@@ -13,7 +13,7 @@ class AdminLoginController extends Controller
 {
     public function index()
     {
-        //$pass = Hash::make('1234'); //manually hash password created 
+        //return $pass = Hash::make('1234'); //manually hash password created 
         return view('back-end.admin.login');
     }
 

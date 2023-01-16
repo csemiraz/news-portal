@@ -6,7 +6,6 @@ use App\Http\Controllers\Front\TagController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\PostController;
 use App\Http\Controllers\Front\AboutController;
-use App\Http\Controllers\Front\LoginController;
 use App\Http\Controllers\Front\TermsController;
 use App\Http\Controllers\Front\VideoController;
 use App\Http\Controllers\Front\ArchiveController;
@@ -21,9 +20,12 @@ use App\Http\Controllers\Admin\AdminVideoController;
 use App\Http\Controllers\Front\DisclaimerController;
 use App\Http\Controllers\Front\OnlinePollController;
 use App\Http\Controllers\Front\SubscriberController;
+use App\Http\Controllers\Admin\AdminAuthorController;
+use App\Http\Controllers\Author\AuthorHomeController;
 use App\Http\Controllers\Front\SubCategoryController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSettingController;
+use App\Http\Controllers\Author\AuthorLoginController;
 use App\Http\Controllers\Front\PhotoGalleryController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminOnlinePollController;
@@ -51,7 +53,6 @@ Route::get('faq', [FaqController::class, 'index'])->name('faq');
 Route::get('terms', [TermsController::class, 'index'])->name('terms');
 Route::get('privacy', [PrivacyController::class, 'index'])->name('privacy');
 Route::get('disclaimer', [DisclaimerController::class, 'index'])->name('disclaimer');
-Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 //Route::post('contact/send-email', [ContactController::class, 'send_email'])->name('contact_form_submit');
 Route::post('contact-form-submit', [ContactController::class, 'contact_form_submit'])->name('contact_form_submit');
@@ -64,6 +65,14 @@ Route::get('archive/{year}/{month}', [ArchiveController::class, 'archive_detail'
 Route::get('tag/{tag_name}', [TagController::class, 'show'])->name('news_tags');
 
 
+/* Author */
+Route::get('/author/home', [AuthorHomeController::class, 'index'])->name('author_home')->middleware('author:author');
+Route::get('author/login', [AuthorLoginController::class, 'index'])->name('author_login');
+Route::post('/author/login-submit', [AuthorLoginController::class, 'login_submit'])->name('author_login_submit');
+Route::get('author/edit-profile', [AuthorLoginController::class, 'edit_profile'])->name('author_edit_profile')->middleware('author:author');
+Route::post('author/edit-profile-submit', [AuthorLoginController::class, 'edit_profile_submit'])->name('author_edit_profile_submit')->middleware('author:author');
+
+Route::get('author/logout', [AuthorLoginController::class, 'logout'])->name('author_logout');
 
 
 /* Admin */
@@ -79,6 +88,7 @@ Route::get('admin/edit-profile', [AdminProfileController::class, 'edit_profile']
 Route::post('admin/edit-profile-submit', [AdminProfileController::class, 'edit_profile_submit'])->name('admin_edit_profile_submit')->middleware('admin:admin');
 
 Route::get('admin/logout', [AdminLoginController::class, 'logout'])->name('admin_logout');
+
 
 /* Admin Group */
 
@@ -190,6 +200,15 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/social/edit/{id}', [AdminSocialItemController::class, 'edit'])->name('admin_social_edit');
     Route::post('admin/social/update/{id}', [AdminSocialItemController::class, 'update'])->name('admin_social_update');
     Route::get('admin/social/delete/{id}', [AdminSocialItemController::class, 'delete'])->name('admin_social_delete');
+
+    
+    Route::get('admin/author/show', [AdminAuthorController::class, 'show'])->name('admin_author_show');
+    Route::get('admin/author/create', [AdminAuthorController::class, 'create'])->name('admin_author_create');
+    Route::post('admin/author/store', [AdminAuthorController::class, 'store'])->name('admin_author_store');
+    Route::get('admin/author/edit/{id}', [AdminAuthorController::class, 'edit'])->name('admin_author_edit');
+    Route::post('admin/author/update/{id}', [AdminAuthorController::class, 'update'])->name('admin_author_update');
+    Route::get('admin/author/delete/{id}', [AdminAuthorController::class, 'delete'])->name('admin_author_delete');
+
 
 
 
