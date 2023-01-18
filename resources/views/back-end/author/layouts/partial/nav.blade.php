@@ -14,7 +14,7 @@
             <img alt="image" src="{{ asset('assets/images/'.Auth::guard('author')->user()->photo) }}" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('author')->user()->name }}</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="" class="dropdown-item has-icon">
+                <a href="{{ route('author_edit_profile') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Edit Profile
                 </a>
                 <a href="{{ route('author_logout') }}" class="dropdown-item has-icon text-danger">

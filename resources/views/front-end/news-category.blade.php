@@ -45,7 +45,7 @@
                                             @endphp
                                         @else
                                             @php
-                                                $user_data = \App\Models\Admin::where('id', $item->admin_id)->first();
+                                                $user_data = \App\Models\Author::where('id', $item->author_id)->first();
                                             @endphp
                                         @endif
                                         <a href="javascript:void(0)">{{ $user_data->name }}</a>

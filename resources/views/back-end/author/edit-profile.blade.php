@@ -1,5 +1,5 @@
-@extends('back-end.layouts.app')
-@section('title', 'Admin Update Profile')
+@extends('back-end.author.layouts.app')
+@section('title', 'Author | Edit Profile')
 @section('heading', 'Edit Profile')
 @section('main_content')
 <div class="section-body">
@@ -7,21 +7,21 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin_edit_profile_submit') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('author_edit_profile_submit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="{{ asset('assets/back-end/uploads/'.Auth::guard('admin')->user()->photo) }}" alt="Admin Photo" class="profile-photo w_100_p">
+                                <img src="{{ asset('assets/images/'.Auth::guard('author')->user()->photo) }}" alt="Author Photo" class="profile-photo w_100_p">
                                 <input type="file" class="form-control mt_10" name="photo">
                             </div>
                             <div class="col-md-9">
                                 <div class="mb-4">
                                     <label class="form-label">Name *</label>
-                                    <input type="text" class="form-control" name="name" value="{{ Auth::guard('admin')->user()->name }}">
+                                    <input type="text" class="form-control" name="name" value="{{ Auth::guard('author')->user()->name }}">
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label">Email *</label>
-                                    <input type="text" class="form-control" name="email" value="{{ Auth::guard('admin')->user()->email }}">
+                                    <input type="text" class="form-control" name="email" value="{{ Auth::guard('author')->user()->email }}">
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label">Password</label>

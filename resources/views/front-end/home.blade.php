@@ -66,7 +66,7 @@
                                             @endphp
                                         @else
                                             @php
-                                            $user_data = \App\Models\Admni::where('id',$item->author_id)->first();
+                                            $user_data = \App\Models\Author::where('id',$item->author_id)->first();
                                             @endphp
                                         @endif
         
@@ -121,7 +121,7 @@
                                         @endphp
                                     @else
                                         @php
-                                        $user_data = \App\Models\Admin::where('id',$item->author_id)->first();
+                                        $user_data = \App\Models\Author::where('id',$item->author_id)->first();
                                         @endphp
                                     @endif
     
@@ -250,7 +250,7 @@
                                                
                                             @else
                                             @php
-                                                $user_data = \App\Models\Admin::where('id', $single->author_id)->first();
+                                                $user_data = \App\Models\Author::where('id', $single->author_id)->first();
                                             @endphp
                                                 
                                             @endif
@@ -303,7 +303,7 @@
                                                     @endphp
                                                     @else
                                                     @php
-                                                        $user_data=\App\Models\Admin::where('id', $single->author_id)->first();
+                                                        $user_data=\App\Models\Author::where('id', $single->author_id)->first();
                                                     @endphp
                                                     @endif
                                                     <a href="">{{ $user_data->name }}</a>

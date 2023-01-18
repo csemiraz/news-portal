@@ -22,12 +22,14 @@ use App\Http\Controllers\Front\OnlinePollController;
 use App\Http\Controllers\Front\SubscriberController;
 use App\Http\Controllers\Admin\AdminAuthorController;
 use App\Http\Controllers\Author\AuthorHomeController;
+use App\Http\Controllers\Author\AuthorPostController;
 use App\Http\Controllers\Front\SubCategoryController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Author\AuthorLoginController;
 use App\Http\Controllers\Front\PhotoGalleryController;
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Author\AuthorProfileController;
 use App\Http\Controllers\Admin\AdminOnlinePollController;
 use App\Http\Controllers\Admin\AdminSocialItemController;
 use App\Http\Controllers\Admin\AdminSubscriberController;
@@ -69,10 +71,21 @@ Route::get('tag/{tag_name}', [TagController::class, 'show'])->name('news_tags');
 Route::get('/author/home', [AuthorHomeController::class, 'index'])->name('author_home')->middleware('author:author');
 Route::get('author/login', [AuthorLoginController::class, 'index'])->name('author_login');
 Route::post('/author/login-submit', [AuthorLoginController::class, 'login_submit'])->name('author_login_submit');
-Route::get('author/edit-profile', [AuthorLoginController::class, 'edit_profile'])->name('author_edit_profile')->middleware('author:author');
-Route::post('author/edit-profile-submit', [AuthorLoginController::class, 'edit_profile_submit'])->name('author_edit_profile_submit')->middleware('author:author');
+Route::get('author/edit-profile', [AuthorProfileController::class, 'edit_profile'])->name('author_edit_profile')->middleware('author:author');
+Route::post('author/edit-profile-submit', [AuthorProfileController::class, 'edit_profile_submit'])->name('author_edit_profile_submit')->middleware('author:author');
 
 Route::get('author/logout', [AuthorLoginController::class, 'logout'])->name('author_logout');
+
+/* Author Group */
+Route::group(['middleware' => 'author:author'], function() {
+    Route::get('author/post/show', [AuthorPostController::class, 'show'])->name('author_post_show');
+    Route::get('author/post/create', [AuthorPostController::class, 'create'])->name('author_post_create');
+    Route::post('author/post/store', [AuthorPostController::class, 'store'])->name('author_post_store');
+    Route::get('author/post/edit/{id}', [AuthorPostController::class, 'edit'])->name('author_post_edit');
+    Route::post('author/post/update/{id}', [AuthorPostController::class, 'update'])->name('author_post_update');
+    Route::get('author/post/delete/{id}', [AuthorPostController::class, 'delete'])->name('author_post_delete');
+    Route::get('author/tag/delete/{id}', [AuthorPostController::class, 'delete_tag'])->name('author_tag_delete');
+});
 
 
 /* Admin */

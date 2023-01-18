@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Author;
 
 use App\Models\Tag;
 use App\Models\Post;
@@ -12,18 +12,18 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class AdminPostController extends Controller
+class AuthorPostController extends Controller
 {
     public function show()
     {
-        $posts = Post::latest()->where('admin_id', Auth::guard()->user()->id)->get();
-        return view('back-end.admin.post.post-show', compact('posts'));
+        $posts = Post::latest()->where('author_id',Auth::guard('author')->user()->id)->get();
+        return view('back-end.author.post-show', compact('posts'));
     }
 
     public function create()
     {
         $sub_categories = SubCategory::latest()->get();
-        return view('back-end.admin.post.post-create', compact('sub_categories'));
+        return view('back-end.author.post-create', compact('sub_categories'));
     }
 
     public function store(Request $request)
@@ -47,8 +47,8 @@ class AdminPostController extends Controller
         $post->post_photo = $final_name;
         $post->sub_category_id = $request->sub_category_id;
         $post->post_views = 0;
-        $post->author_id = 0;
-        $post->admin_id = Auth::guard('admin')->user()->id;
+        $post->author_id = Auth::guard('author')->user()->id;
+        $post->admin_id =0;
         $post->is_share = $request->is_share;
         $post->is_comment = $request->is_comment;
         $post->save();
@@ -90,16 +90,16 @@ class AdminPostController extends Controller
 
     public function edit($id)
     {
-        $admin_post_check = Post::where('id',$id)->where('admin_id',Auth::guard('admin')->user()->id)->count();
+        $author_post_check = Post::where('id', $id)->where('author_id', Auth::guard('author')->user()->id)->count();
 
-        if(!$admin_post_check) {
-            return redirect()->route('admin_home');
+        if(!$author_post_check) {
+            return redirect()->route('author_home');
         }
 
         $post = Post::find($id);
         $sub_categories = SubCategory::latest()->get();
         $existing_tags = Tag::where('post_id', $id)->get();
-        return view('back-end.admin.post.post-edit', compact('post', 'sub_categories', 'existing_tags'));
+        return view('back-end.author.post-edit', compact('post', 'sub_categories', 'existing_tags'));
     }
 
     public function update(Request $request, $id)
@@ -145,7 +145,7 @@ class AdminPostController extends Controller
             }
         }   
 
-        return redirect()->route('admin_post_show')->with('success', 'Data is updated successfully');
+        return redirect()->route('author_post_show')->with('success', 'Data is updated successfully');
 
     }
 
@@ -158,10 +158,10 @@ class AdminPostController extends Controller
 
     public function delete($id)
     {
-        $admin_post_check = Post::where('id',$id)->where('admin_id',Auth::guard('admin')->user()->id)->count();
+        $admin_post_check = Post::where('id',$id)->where('author_id',Auth::guard('author')->user()->id)->count();
 
         if(!$admin_post_check) {
-            return redirect()->route('admin_home');
+            return redirect()->route('author_home');
         }
 
         $post = Post::find($id);

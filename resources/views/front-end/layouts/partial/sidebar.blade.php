@@ -122,7 +122,7 @@
                                             @endphp
                                         @else
                                             @php
-                                                $user_data = \App\Models\Admin::where('id', $data->author_id)->first();
+                                                $user_data = \App\Models\Author::where('id', $data->author_id)->first();
                                             @endphp
                                         @endif
                                         <a href="javascript:void(0)">
@@ -165,7 +165,7 @@
                                         @endphp
                                     @else
                                         @php
-                                            $user_data = \App\Models\Admin::where('id', $data->author_id)->first();
+                                            $user_data = \App\Models\Author::where('id', $data->author_id)->first();
                                         @endphp
                                     @endif
                                     <a href="javascript:void(0)">

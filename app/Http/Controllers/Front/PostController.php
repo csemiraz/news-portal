@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Admin;
+use App\Models\Author;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -27,7 +28,7 @@ class PostController extends Controller
             $user_data = Admin::where('id', $post_detail->admin_id)->first();
         }
         else {
-            //update later
+            $user_data = Author::where('id', $post_detail->author_id)->first();
         }
 
         //Related News
