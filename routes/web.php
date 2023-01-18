@@ -74,6 +74,11 @@ Route::post('/author/login-submit', [AuthorLoginController::class, 'login_submit
 Route::get('author/edit-profile', [AuthorProfileController::class, 'edit_profile'])->name('author_edit_profile')->middleware('author:author');
 Route::post('author/edit-profile-submit', [AuthorProfileController::class, 'edit_profile_submit'])->name('author_edit_profile_submit')->middleware('author:author');
 
+Route::get('author/forget-password', [AuthorLoginController::class, 'forget_password'])->name('author_forget_password');
+Route::post('author/forget-password-submit', [AuthorLoginController::class, 'forget_password_submit'])->name('author_forget_password_submit');
+Route::get('author/reset-password/{token}/{email}', [AuthorLoginController::class, 'reset_password'])->name('author_reset_password');
+Route::post('author/reset-password-submit', [AuthorLoginController::class, 'reset_password_submit'])->name('author_reset_password_submit');
+
 Route::get('author/logout', [AuthorLoginController::class, 'logout'])->name('author_logout');
 
 /* Author Group */
