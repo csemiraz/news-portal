@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Page;
 use App\Models\Post;
+use App\Models\Setting;
 use App\Models\Category;
 use App\Models\OnlinePoll;
 use App\Models\SocialItem;
@@ -43,6 +44,7 @@ class AppServiceProvider extends ServiceProvider
         $popular_news_data = Post::orderBy('post_views', 'desc')->get();
         $online_poll_data = OnlinePoll::orderBy('id', 'desc')->first();
         $social_item_data = SocialItem::get();
+        $setting_data = Setting::where('id', 1)->first();
 
         view()->share('global_top_ad_data', $top_ad_data);
         view()->share('global_sidebar_top_ad', $sidebar_top_ad);
@@ -54,5 +56,6 @@ class AppServiceProvider extends ServiceProvider
         view()->share('global_popular_news_data', $popular_news_data);
         view()->share('global_online_poll_data', $online_poll_data);
         view()->share('global_social_item_data', $social_item_data);
+        view()->share('global_setting_data', $setting_data);
     }
 }

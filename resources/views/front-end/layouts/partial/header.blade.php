@@ -3,8 +3,13 @@
         <div class="row">
             <div class="col-md-6">
                 <ul>
-                    <li class="today-text">Today: January 20, 2022</li>
-                    <li class="email-text">contact@arefindev.com</li>
+                    @if($global_setting_data->top_bar_date_status == 'Show')
+                        <li class="today-text">Today: {{ date('F d, Y') }}</li>
+                    @endif
+
+                    @if($global_setting_data->top_bar_email_status == 'Show')
+                        <li class="email-text">{{ $global_setting_data->top_bar_email }}</li>
+                    @endif
                 </ul>
             </div>
             <div class="col-md-6">
@@ -42,8 +47,8 @@
         <div class="row">
             <div class="col-md-4 d-flex align-items-center">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="{{ asset('assets/front-end/') }}/uploads/logo.png" alt="">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('assets/images/'.$global_setting_data->logo) }}" alt="">
                     </a>
                 </div>
             </div>
