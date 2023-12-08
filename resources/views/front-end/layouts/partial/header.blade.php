@@ -27,7 +27,7 @@
                         <li class="menu"><a href="{{ route('author_login') }}">Login</a></li>
                     @endif
                     
-                    <li>
+                    {{-- <li>
                         <div class="language-switch">
                             <select name="">
                                 <option value="">English</option>
@@ -35,7 +35,7 @@
                                 <option value="">Arabic</option>
                             </select>
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>

@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Author\AuthorLoginController;
 use App\Http\Controllers\Front\PhotoGalleryController;
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminLanguageController;
 use App\Http\Controllers\Author\AuthorProfileController;
 use App\Http\Controllers\Admin\AdminOnlinePollController;
 use App\Http\Controllers\Admin\AdminSocialItemController;
@@ -146,9 +147,6 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete');
     Route::get('admin/tag/delete/{id}', [AdminPostController::class, 'delete_tag'])->name('admin_tag_delete');
 
-    Route::get('admin/setting', [AdminSettingController::class, 'index'])->name('admin_setting');
-    Route::post('admin/setting/update', [AdminSettingController::class, 'update'])->name('admin_setting_update');
-
     Route::get('admin/photo-gallery/show', [AdminPhotoGalleryController::class, 'show'])->name('admin_photo_gallery_show');
     Route::get('admin/photo-gallery/create', [AdminPhotoGalleryController::class, 'create'])->name('admin_photo_gallery_create');
     Route::post('admin/photo-gallery/store', [AdminPhotoGalleryController::class, 'store'])->name('admin_photo_gallery_store');
@@ -226,6 +224,16 @@ Route::group(['middleware'=>'admin:admin'], function() {
     Route::get('admin/author/edit/{id}', [AdminAuthorController::class, 'edit'])->name('admin_author_edit');
     Route::post('admin/author/update/{id}', [AdminAuthorController::class, 'update'])->name('admin_author_update');
     Route::get('admin/author/delete/{id}', [AdminAuthorController::class, 'delete'])->name('admin_author_delete');
+
+    Route::get('admin/setting', [AdminSettingController::class, 'index'])->name('admin_setting');
+    Route::post('admin/setting/update', [AdminSettingController::class, 'update'])->name('admin_setting_update');
+
+    Route::get('admin/language/show', [AdminLanguageController::class, 'show'])->name('admin_language_show');
+    Route::get('admin/language/create', [AdminLanguageController::class, 'create'])->name('admin_language_create');
+    Route::post('admin/language/store', [AdminLanguageController::class, 'store'])->name('admin_language_store');
+    Route::get('admin/language/edit/{id}', [AdminLanguageController::class, 'edit'])->name('admin_language_edit');
+    Route::post('admin/language/update/{id}', [AdminLanguageController::class, 'update'])->name('admin_language_update');
+    Route::get('admin/language/delete/{id}', [AdminLanguageController::class, 'delete'])->name('admin_language_delete');
 
 
 

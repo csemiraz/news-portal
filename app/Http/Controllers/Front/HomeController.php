@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Post;
+use App\Models\Video;
 use App\Models\Setting;
 use App\Models\Category;
 use App\Models\SubCategory;
@@ -20,7 +21,8 @@ class HomeController extends Controller
         $post_data = Post::orderBy('id', 'desc')->get();
         $sub_category_data = SubCategory::orderBy('subcategory_order', 'asc')->where('show_on_home', 'Show')->get();
         $category_data = Category::orderBy('category_order', 'asc')->get();
-        return view('front-end.home', compact('home_ad_data','setting_data','post_data','sub_category_data', 'category_data'));
+        $home_videos = Video::latest()->get();
+        return view('front-end.home', compact('home_ad_data','setting_data','post_data','sub_category_data', 'category_data', 'home_videos'));
     }
 
     public function subcategory_by_category($id)

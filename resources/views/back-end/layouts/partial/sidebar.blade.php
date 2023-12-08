@@ -30,7 +30,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item dropdown {{ Request::is('admin/category/*') || Request::is('admin/sub-category/*') || Route::is('admin/post/*') ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ Request::is('admin/category/*') || Request::is('admin/sub-category/*') || Request::is('admin/post/*') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>News</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('admin/category/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_category_show') }}"><i class="fas fa-angle-right"></i> Category</a></li>
@@ -91,6 +91,11 @@
             <li class="{{ Request::is('admin/social/*') ? 'active' : '' }}">
                 <a href="{{ route('admin_social_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Social Item</span></a>
             </li>
+
+            <li class="{{ Request::is('admin/language/*') ? 'active' : '' }}">
+                <a href="{{ route('admin_language_show') }}" class="nav-link"><i class="fas fa-hand-point-right"></i><span>Languages</span></a>
+            </li>
+
             
             
 

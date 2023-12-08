@@ -11,7 +11,9 @@ class SubCategory extends Model
 
     public function rCategory()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_id')->withDefault([
+            'category_name' => 'No category'
+        ]);;
     }
 
     public function rPost()

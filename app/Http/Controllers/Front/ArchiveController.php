@@ -19,7 +19,7 @@ class ArchiveController extends Controller
 
     public function archive_detail($year, $month)
     {
-        $archive_post_data = Post::whereMonth('created_at', '=', $month)     ->whereYear('created_at', '=', $year)->paginate(2);
+        $archive_post_data = Post::whereMonth('created_at', '=', $month)->whereYear('created_at', '=', $year)->paginate(8);
        
         foreach($archive_post_data as $item) {
             $st = strtotime($item->created_at);

@@ -37,8 +37,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="right">
-                            34 Antiger Lane,<br>
-                            PK Lane, USA, 12937
+                            Shyamoli, Dhaka<br>
+                            Dhaka, BD, 1207
                         </div>
                     </div>
                     <div class="list-item">
@@ -46,7 +46,7 @@
                             <i class="far fa-envelope"></i>
                         </div>
                         <div class="right">
-                            contact@arefindev.com
+                            {{ $global_setting_data->top_bar_email }}
                         </div>
                     </div>
                     <div class="list-item">
@@ -54,7 +54,7 @@
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="right">
-                            122-222-1212
+                            01912440922
                         </div>
                     </div> 
                     <ul class="social">
@@ -132,6 +132,6 @@
 <div id="loader"></div>
 
 <div class="copyright">
-    Copyright 2022, ArefinDev. All Rights Reserved.
+    Copyright {{ date('Y') }}, Miraz. All Rights Reserved.
 </div>
 
